@@ -8,9 +8,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "product")
@@ -22,4 +20,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
     private String name;
+    private double price;
+    private String category;
+    private int availableCount;
+
 }
