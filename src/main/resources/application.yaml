@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: SA
+  jpa:
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+
