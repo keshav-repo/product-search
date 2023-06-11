@@ -8,3 +8,5 @@ spring:
     console:
       enabled: true
 
+
+

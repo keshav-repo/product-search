@@ -23,21 +23,30 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public List<Product> allProducts( @RequestParam(required = false) String id,
-                                    @RequestParam(required = false) String category
+    public List<Product> allProducts(@RequestParam(required = false) String id,
+                                     @RequestParam(required = false) String category,
+                                     @RequestParam(required = false) String minPrice,
+                                     @RequestParam(required = false) String maxPrice
+
     ) {
 
         List<QueryParam> queryParams = new ArrayList<>();
-        
-        if(StringUtils.hasLength(id)){
-             queryParams.add(new QueryParam("productId", id, "String")); 
-        }else if(StringUtils.hasLength(category)){
+
+        if (StringUtils.hasLength(id)) {
+            queryParams.add(new QueryParam("productId", id, "String"));
+        }
+        if (StringUtils.hasLength(category)) {
             queryParams.add(new QueryParam("category", category, "String"));
         }
-           
+        if (StringUtils.hasLength(minPrice)) {
+            queryParams.add(new QueryParam("minPrice", minPrice, "String"));
+        }
+        if (StringUtils.hasLength(maxPrice)) {
+            queryParams.add(new QueryParam("maxPrice", maxPrice, "String"));
+        }
+
         return productService.getProduct(queryParams);
     }
 
-    
 
 }
